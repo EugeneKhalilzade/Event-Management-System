@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/event_management_db # Connects to the 'db' service in Docker Compose
+    username: admin                       # PostgreSQL username
+    password: admin123                           # PostgreSQL password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10                  # Maximum size of the database connection pool
+  jpa:
+    hibernate:
+      ddl-auto: update                       # Hibernate will update the database schema
+    show-sql: true                           # Show SQL queries in the console (useful for development)
+    properties:
+      hibernate:
+        format_sql: true                     # Make the SQL format more readable
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true                    # Make JSON responses more readable
+  server:
+    port: 8080                               # The Spring Boot application will run on port 8080
+  application:
+    name: EventManagementSpring                    # Name of the application
